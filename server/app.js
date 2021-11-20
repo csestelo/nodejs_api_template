@@ -1,10 +1,9 @@
 import express, { json, urlencoded } from 'express';
-import { join } from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import indexRouter from './routes/index';
-import healthcheckRouter from './routes/healthcheck';
+import indexRouter from './routes/index.js';
+import healthcheckRouter from './routes/healthcheck.js';
 
 var app = express();
 

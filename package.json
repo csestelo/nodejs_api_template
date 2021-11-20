@@ -2,34 +2,26 @@
   "name": "cached_downloader",
   "version": "1.0.0",
   "description": "Express Api to download and cache files.",
-  "main": "index.js",
   "repository": "github.com",
   "author": "sestelos@gmail.com",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
     "cookie-parser": "^1.4.6",
     "debug": "^4.3.2",
     "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.15",
-    "rimraf": "^3.0.2"
+    "morgan": "^1.10.0"
   },
   "scripts": {
-    "build": "yarn run clean && yarn run transpile",
-    "clean": "rimraf dist-server",
-    "dev": "NODE_ENV=development yarn run build && yarn run server",
-    "prod": "NODE_ENV=production yarn run build && yarn run server",
-    "server": "node ./dist-server/bin/www",
-    "start": "yarn run prod",
+    "dev": "NODE_ENV=development yarn run server",
+    "start": "NODE_ENV=production yarn run server",
+    "server": "node server/bin/www",
     "test": "jest",
-    "transpile": "babel ./server --out-dir dist-server",
     "watch:dev": "nodemon"
   },
   "devDependencies": {
     "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
     "supertest": "^6.1.6"
   },
   "jest": {
@@ -38,14 +30,15 @@
       "/node_modules/"
     ]
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
-  "nodemonConfig": { 
+  "nodemonConfig": {
     "exec": "yarn run dev",
-    "watch": ["server/*"],
-    "ignore": ["**/tests/**", "*.test.js", "*.spec.js"]
+    "watch": [
+      "server/*"
+    ],
+    "ignore": [
+      "**/tests/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
   }
 }
