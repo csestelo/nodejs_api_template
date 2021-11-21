@@ -3,7 +3,7 @@ var router = Router();
 
 /* GET app healthcheck */
 router.get('/', function(req, res, next) {
-  res.send('PING!');
+  res.json({msg: "I'm UP!"});
 });
 
 export default router;
