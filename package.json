@@ -16,7 +16,7 @@
     "dev": "NODE_ENV=development yarn run server",
     "start": "NODE_ENV=production yarn run server",
     "server": "node server/bin/www",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "watch:dev": "nodemon"
   },
   "devDependencies": {
@@ -26,6 +26,7 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "transform": {},
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
